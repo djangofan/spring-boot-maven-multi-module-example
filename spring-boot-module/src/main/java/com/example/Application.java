@@ -18,6 +18,10 @@ import java.util.Arrays;
 @SpringBootApplication
 public class Application {
 
+	private static String DEV_PROPS = "application-dev.properties";
+	private static String PRD_PROPS = "application-prd.properties";
+	private static String DEFAULT_PROPS = "application.properties";
+
 	private static Path CONFIG = Paths.get(System.getProperty("user.dir"))
 			.resolve(Paths.get(".."))
 			.resolve("config");
@@ -25,18 +29,16 @@ public class Application {
 	private static final String EXT_CONFIG_DIR = CONFIG.toString() + File.separator;
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(Application.class, args);
-
 	}
 
 	@Bean
 	public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		PropertySourcesPlaceholderConfigurer properties = new PropertySourcesPlaceholderConfigurer();
 		Resource[] resources = new Resource[] {
-				        new FileSystemResource(EXT_CONFIG_DIR + "application-prd.properties"),
-						new FileSystemResource(EXT_CONFIG_DIR + "application-dev.properties"),
-						new ClassPathResource("/application.properties")
+				        new FileSystemResource(EXT_CONFIG_DIR + PRD_PROPS),
+						new FileSystemResource(EXT_CONFIG_DIR + DEV_PROPS),
+						new ClassPathResource(DEFAULT_PROPS)
 				};
 		log.info("Properties: " + Arrays.deepToString(resources));
 		properties.setIgnoreResourceNotFound(true);
