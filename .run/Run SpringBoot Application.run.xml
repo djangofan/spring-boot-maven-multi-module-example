@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run SpringBoot Application" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.example.SpringBoot2JdbcWithH2Application" />
+    <module name="spring-boot-2-jdbc-with-h2" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
