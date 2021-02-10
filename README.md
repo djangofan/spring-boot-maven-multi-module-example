@@ -9,10 +9,14 @@ THIS example demonstrates a multi-module project where Spring-Boot loads `applic
 
 ## Execution 
 
-This doesn't work, and I am not sure why:
+This works:
 
-    mvn spring-boot:run -pl spring-boot-module -Dspring.profiles.active=dev
+    mvn spring-boot:run -pl spring-boot-module
 
-But this will work:
+But this will also work:
 
-    mvn exed:java -pl spring-boot-module -Dspring.profiles.active=dev
+    mvn exed:java -pl spring-boot-module
+
+You will notice this arg is configured to be passed in pom file:
+
+    -Dspring.profiles.active=dev
