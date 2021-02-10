@@ -70,6 +70,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<mainClass>com.example.Application</mainClass>
+					<workingDirectory>${maven.multiModuleProjectDirectory}</workingDirectory>
 					<jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
 					<arguments>
 						<argument>--spring.profiles.active=dev</argument>
@@ -82,6 +83,9 @@
 				<version>1.6.0</version>
 				<configuration>
 					<mainClass>com.example.Application</mainClass>
+					<arguments>
+						<argument>--spring.profiles.active=dev</argument>
+					</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
